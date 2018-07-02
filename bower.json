@@ -1,0 +1,32 @@
+{
+  "name": "paper-facebook-login",
+  "version": "0.0.0",
+  "authors": [
+    "v1s10n_4"
+  ],
+  "description": "Simple facebook login button",
+  "keywords": [
+    "web-components",
+    "custom-element",
+    "paper-facebook-login"
+  ],
+  "main": "paper-facebook-login.html",
+  "license": "MIT",
+  "homepage": "https://github.com/v1s10n_4/paper-facebook-login/",
+  "demos": {
+    "Demo": "demo/index.html"
+  },
+  "ignore": [
+    "*",
+    "!*.html",
+    "!LICENSE"
+  ],
+  "dependencies": {
+    "polymer": "^2.0.0"
+  },
+  
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "^6.0.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "paper-facebook-login",
+  "version": "0.0.0",
+  "description": "Simple facebook login button",
+  "main": "paper-facebook-login.html",
+  "scripts": {
+    "test": "wct",
+    "posttest": "eslint .",
+    "demo": "browser-sync start -c bs-config.js"
+  },
+  "author": "v1s10n_4",
+  "license": "MIT",
+  "keywords": [
+    "web-components",
+    "custom-element",
+    "paper-facebook-login"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/v1s10n_4/paper-facebook-login.git"
+  },
+  "bugs": {
+    "url": "https://github.com/v1s10n_4/paper-facebook-login/issues"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.9.0",
+    "eslint": "^3.14.1",
+    "web-component-tester": "^6.0.0"
+  }
+}
