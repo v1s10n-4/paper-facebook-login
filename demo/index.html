@@ -1,65 +1,106 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>paper-facebook-login Demo</title>
 
-    <!-- Import demo page deps -->
-    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^1.0.0/webcomponents-loader.js"></script>
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <script src="../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../bower_components/polymer/polymer.html">
 
-    <!-- Import paper-facebook-login -->
     <link rel="import" href="../paper-facebook-login.html">
 
-    <!-- Demo styles -->
     <style>
-      /* Page styles */
-      body {
-        font-family: sans-serif;
-        color: #303c46
-      }
+        body {
+            font-family: sans-serif;
+            color: #303c46
+        }
 
-      .wrapper {
-        width: 90%;
-        max-width: 38rem;
-        margin: 2rem auto;
-      }
+        .wrapper {
+            width: 90%;
+            max-width: 38rem;
+            margin: 2rem auto;
+        }
 
-      .demo {
-        display: inline-block;
-        width: 100%;
-        margin: 2rem 0;
-      }
+        .demo {
+            display: inline-block;
+            width: 100%;
+            margin: 2rem 0;
+        }
 
-      .demo__title {
-        font-size: 1.4rem;
-        font-weight: 400;
-      }
+        .demo__title {
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
 
-      /* Add element styles here */
     </style>
-  </head>
+</head>
 
-  <body>
-    <div class="wrapper">
+<body>
+<div class="wrapper">
 
-      <div class="demo">
-        <h1 class="demo__title">Basic demo</h1>
+    <div class="demo">
+        <h1 class="demo__title">Simple login button</h1>
         <demo-snippet>
-          <template>
-
-            <!-- Add your demo code here -->
-
-          </template>
+            <template>
+                <dom-bind>
+                    <template is="dom-bind">
+                        <paper-facebook-login appid="479069922240685" user="{{user}}"></paper-facebook-login>
+                        <div style="margin-top: 20px">
+                            <img src$="[[user.picture.data.url]]">
+                            <div>[[user.first_name]] [[user.last_name]]</div>
+                            <div>[[user.birthday]]</div>
+                            <div>[[user.email]]</div>
+                        </div>
+                    </template>
+                </dom-bind>
+            </template>
         </demo-snippet>
-      </div>
-
-      <!--
-        You can add additional demos here
-        Just copy & paste the above block
-       -->
-
     </div>
-  </body>
+
+    <h2 class="demo__title">Facebook button</h2>
+    <demo-snippet>
+        <template>
+            <custom-style>
+                <style>
+                    #fbLogin {
+                        --paper-facebook-login: {
+                            background-color: #303c46;
+                            border-radius: 50px;
+                        };
+
+                        --paper-facebook-login-icon: {
+                            padding: 7.5px 20px;
+                            margin-left: 5px;
+                            border-radius: 50px;
+                            background-color: #3b5998;
+                        }
+                    }
+                </style>
+            </custom-style>
+            <dom-bind>
+                <template is="dom-bind">
+                    <paper-facebook-login id="fbLogin"
+                                          text="Connectez-vous avec Facebook"
+                                          language="fr_FR"
+                                          appid="479069922240685"
+                                          user="{{user}}"
+                                          scope="email,user_age_range,user_birthday,user_friends,user_gender,user_hometown,user_link,user_location,user_likes,user_photos,user_posts,user_tagged_places,user_videos,user_events">
+                    </paper-facebook-login>
+                    <div style="margin-top: 20px">
+                        <img src="[[user.picture.data.url]]">
+                        <div>[[user.first_name]] [[user.last_name]] [[user.age_range.min]]</div>
+                        <div>[[user.birthday]]</div>
+                        <div>[[user.gender]]</div>
+                        <div>[[user.location.name]]</div>
+                        <div>[[user.email]]</div>
+                        <div>[[user.id]]</div>
+                    </div>
+                </template>
+            </dom-bind>
+        </template>
+    </demo-snippet>
+</div>
+</body>
 </html>

@@ -1,5 +1,7 @@
 # paper-facebook-login
-[![Build status][travis-badge]][travis-url] ![Size][size-badge] [![Version][tag-badge]][releases-url] [![Published][webcomponents-badge]][webcomponents-url]
+[![Build status](https://travis-ci.org/vision-4/paper-facebook-button.svg?branch=master)](https://travis-ci.org/vision-4/paper-facebook-button)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/vision-4/facebook-login-button)
+
 
 Simple facebook login button
 

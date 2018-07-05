@@ -6,7 +6,7 @@ module.exports = {
       '/': './bower_components'
     }
   },
-  files: '*.html',
+  files: ['*.html', 'demo/index.html'],
   open: false,
   notify: false
 };

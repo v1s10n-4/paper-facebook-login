@@ -8,7 +8,8 @@
   "keywords": [
     "web-components",
     "custom-element",
-    "paper-facebook-login"
+    "paper-facebook-login",
+    "polymer"
   ],
   "main": "paper-facebook-login.html",
   "license": "MIT",
@@ -22,7 +23,8 @@
     "!LICENSE"
   ],
   "dependencies": {
-    "polymer": "^2.0.0"
+    "polymer": "^2.0.0",
+    "paper-button": "2.0.0"
   },
   
   "devDependencies": {
