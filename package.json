@@ -1,6 +1,6 @@
 {
   "name": "paper-facebook-login",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "description": "Simple facebook login button",
   "main": "paper-facebook-login.html",
   "scripts": {
@@ -17,10 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/v1s10n_4/paper-facebook-login.git"
+    "url": "https://github.com/vision-4/paper-facebook-login.git"
   },
   "bugs": {
-    "url": "https://github.com/v1s10n_4/paper-facebook-login/issues"
+    "url": "https://github.com/vision-4/paper-facebook-login/issues"
   },
   "devDependencies": {
     "browser-sync": "^2.9.0",

@@ -1,5 +1,5 @@
-<link rel="import" href="bower_components/polymer/polymer-element.html">
-<link rel="import" href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html">
 <!--
 Element for including a Facebook Login button
 After including the button the FB object is at a global scope and
@@ -22,18 +22,19 @@ Example:
 
 ### Styling
 
-Style the buttons with CSS as you would a normal DOM element. The following
-custom properties and mixins are available:
-| Custom property | Description | Default
-| -- | -- | --
-| `--paper-facebook-login` | Mixin applied on the button | `{}`
-| `--paper-facebook-login-icon` | Mixin applied on the icon | `{}`
-| `--paper-facebook-login-text` | Mixin applied on the text | `{}`
+Style the buttons with CSS as you would a normal DOM element.
+
+The following custom properties and mixins are available:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--paper-facebook-login` | Mixin applied on the button | `{}`
+`--paper-facebook-login-icon` | Mixin applied on the icon | `{}`
+`--paper-facebook-login-text` | Mixin applied on the text | `{}`
 
 @customElement
-@polymer
 @element paper-facebook-login
-@demo /demo/index.html
+@demo demo/index.html
 -->
 
 <dom-module id="paper-facebook-login">
@@ -111,6 +112,7 @@ custom properties and mixins are available:
                     type: Boolean,
                     value: true
                 },
+                /** The user object as returned by Facebook graphApi */
                 user: {
                     type: Object,
                     notify: true
@@ -121,6 +123,7 @@ custom properties and mixins are available:
                     type: String,
                     value: "email,user_birthday"
                 },
+                /** Set to true to log some debug info to the console */
                 debug: {
                     type: Boolean,
                     value: false

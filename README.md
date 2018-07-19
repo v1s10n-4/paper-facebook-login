@@ -5,12 +5,46 @@
 
 Simple facebook login button
 
+<!--
+```
+<custom-element-demo>
+  <template>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+        <link rel="import" href="../../polymer/polymer.html">
+        <link rel="import" href="../paper-facebook-login.html">
+    <style is="custom-style">
+        #container {
+            display: flex;
+        }
+    </style>
+    <dom-bind>
+        <template is="dom-bind">
+            <paper-facebook-login appid="479069922240685" user="{{user}}"></paper-facebook-login>
+            <div style="margin-top: 20px">
+                <img src="[[user.picture.data.url]]">
+                <div>[[user.first_name]] [[user.last_name]]</div>
+                <div>[[user.birthday]]</div>
+                <div>[[user.email]]</div>
+            </div>
+        </template>
+    </dom-bind>
+    <div id="container">
+        <next-code-block></next-code-block>
+    </div>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<paper-facebook-login app-id="479069922240685"></paper-facebook-login>
+```
+
 ## Installation & usage
 
 Install paper-facebook-login with Bower
 
 ```sh
-$ bower i v1s10n_4/paper-facebook-login --save
+$ bower i vision-4/paper-facebook-login --save
 ```
 
 Import it into the `<head>` of your page
@@ -22,7 +56,7 @@ Import it into the `<head>` of your page
 Then use paper-facebook-login in your project
 
 ```html
-<paper-facebook-login></paper-facebook-login>
+<paper-facebook-login app-id="[[yourAppId]]"></paper-facebook-login>
 ```
 
 ### Polyfills for cross-browser support
@@ -47,11 +81,7 @@ The easiest way to do this is by including [polymer-build][polymer-build] in you
 
 MIT © v1s10n_4
 
-[tag-badge]: https://img.shields.io/github/tag/v1s10n_4/paper-facebook-login.svg
-[releases-url]: https://github.com/v1s10n_4/paper-facebook-login/releases
-[travis-badge]: https://img.shields.io/travis/v1s10n_4/paper-facebook-login.svg
-[travis-url]: https://travis-ci.org/v1s10n_4/paper-facebook-login
-[size-badge]: http://img.badgesize.io/v1s10n_4/paper-facebook-login/master/props.name .html?compression=gzip&label=size%20%28unminified%29
-[webcomponents-badge]: https://img.shields.io/badge/webcomponents.org-published-blue.svg
-[webcomponents-url]: https://www.webcomponents.org/element/v1s10n_4/paper-facebook-login
-[polymer-build]: https://github.com/Polymer/polymer-build
+[tag-badge]: https://img.shields.io/github/tag/vision-4/paper-facebook-login.svg
+[releases-url]: https://github.com/vision-4/paper-facebook-login/releases
+[travis-badge]: https://img.shields.io/travis/vision-4/paper-facebook-login.svg
+[travis-url]: https://travis-ci.org/vision-4/paper-facebook-login
