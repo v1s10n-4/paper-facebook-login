@@ -160,6 +160,10 @@ Custom property | Description | Default
             }
         }
 
+        /** Called when user connection status changed
+         * @private
+         * @param response the user object
+         */
         _statusChanged(response) {
             this.set('loading', false);
             let fields = this.scope.split(',').map(x => (!!~x.indexOf('user_') ? x.replace('user_', '') : x));
@@ -185,6 +189,7 @@ Custom property | Description | Default
             }
         }
 
+        /** Used to log the user in the current app */
         login() {
             if (this.debug) console.info(this.scope);
             this.set('loading', true);
@@ -193,6 +198,7 @@ Custom property | Description | Default
             }, {scope: this.scope});
         }
 
+        /** Used to logout the user in the current app */
         logout() {
             FB.logout();
         }
