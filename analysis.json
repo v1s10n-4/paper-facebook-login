@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "elements": [
     {
-      "description": "Element for including the Facebook Login button into your site.\nAfter including the button the FB object is at a global scope and\ncan be used for API calls.\n\nExample:\n```\n<custom-style>\n    <style>\n      #fbLogin {\n        --paper-facebook-login: {\n          background-color: #303c46;\n          border-radius: 25px;\n        }\n      }\n    </style>\n</custom-style>\n<paper-facebook-login id=\"fbLogin\" text=\"login\"></paper-facebook-login>\n```\n\n### Styling\n\nStyle the buttons with CSS as you would a normal DOM element. The following\ncustom properties and mixins are available:\n| Custom property | Description | Default\n| -- | -- | --\n| `--paper-facebook-login` | Mixin applied on the button | `{}`\n| `--paper-facebook-login-icon` | Mixin applied on the icon | `{}`\n| `--paper-facebook-login-text` | Mixin applied on the text | `{}`",
+      "description": "Element for including a Facebook Login button\nAfter including the button the FB object is at a global scope and\ncan be used for API calls.\n\nExample:\n```\n<custom-style>\n    <style>\n      #fbLogin {\n        --paper-facebook-login: {\n          background-color: #303c46;\n          border-radius: 25px;\n        }\n      }\n    </style>\n</custom-style>\n<paper-facebook-login id=\"fbLogin\" text=\"login\"></paper-facebook-login>\n```\n\n### Styling\n\nStyle the buttons with CSS as you would a normal DOM element.\n\nThe following custom properties and mixins are available:\n\nCustom property | Description | Default\n----------------|-------------|----------\n`--paper-facebook-login` | Mixin applied on the button | `{}`\n`--paper-facebook-login-icon` | Mixin applied on the icon | `{}`\n`--paper-facebook-login-text` | Mixin applied on the text | `{}`",
       "summary": "",
       "path": "paper-facebook-login.html",
       "properties": [
@@ -588,11 +588,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 85,
               "column": 16
             },
             "end": {
-              "line": 90,
+              "line": 88,
               "column": 17
             }
           },
@@ -608,18 +608,18 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 90,
               "column": 16
             },
             "end": {
-              "line": 95,
+              "line": 93,
               "column": 17
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "\"1525881277708221\""
+          "defaultValue": "\"\""
         },
         {
           "name": "version",
@@ -628,11 +628,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 95,
               "column": 16
             },
             "end": {
-              "line": 100,
+              "line": 98,
               "column": 17
             }
           },
@@ -648,18 +648,18 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 100,
               "column": 16
             },
             "end": {
-              "line": 105,
+              "line": 103,
               "column": 17
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "\"Connectez-vous avec fessebook\""
+          "defaultValue": "\"Sign-in with Facebook\""
         },
         {
           "name": "loading",
@@ -668,18 +668,18 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 105,
               "column": 16
             },
             "end": {
-              "line": 110,
+              "line": 108,
               "column": 17
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "true"
+          "defaultValue": "false"
         },
         {
           "name": "cookie",
@@ -688,11 +688,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 110,
               "column": 16
             },
             "end": {
-              "line": 115,
+              "line": 113,
               "column": 17
             }
           },
@@ -702,24 +702,65 @@
           "defaultValue": "true"
         },
         {
-          "name": "scope",
+          "name": "user",
           "type": "Object",
+          "description": "The user object as returned by Facebook graphApi",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 115,
+              "column": 16
+            },
+            "end": {
+              "line": 118,
+              "column": 17
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "notify": true
+            }
+          }
+        },
+        {
+          "name": "scope",
+          "type": "string",
           "description": "The scope that you want access to.\n(see https://developers.facebook.com/docs/facebook-login/permissions/v3.0). Should be space delimited",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 121,
               "column": 16
             },
             "end": {
-              "line": 121,
+              "line": 124,
               "column": 17
             }
           },
           "metadata": {
             "polymer": {}
           },
-          "defaultValue": "\"email,public_profile,user_location\""
+          "defaultValue": "\"email,user_birthday\""
+        },
+        {
+          "name": "debug",
+          "type": "boolean",
+          "description": "Set to true to log some debug info to the console",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 126,
+              "column": 16
+            },
+            "end": {
+              "line": 129,
+              "column": 17
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
         }
       ],
       "methods": [
@@ -2760,11 +2801,11 @@
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 125,
+              "line": 133,
               "column": 8
             },
             "end": {
-              "line": 150,
+              "line": 159,
               "column": 9
             }
           },
@@ -2886,36 +2927,55 @@
         },
         {
           "name": "_statusChanged",
-          "description": "",
-          "privacy": "protected",
+          "description": "Called when user connection status changed",
+          "privacy": "private",
           "sourceRange": {
             "start": {
-              "line": 152,
+              "line": 164,
               "column": 8
             },
             "end": {
-              "line": 163,
+              "line": 187,
               "column": 9
             }
           },
           "metadata": {},
           "params": [
             {
-              "name": "response"
+              "name": "response",
+              "type": "Event",
+              "description": "the user object"
             }
           ]
         },
         {
           "name": "login",
-          "description": "",
+          "description": "Used to log the user in the current app",
           "privacy": "public",
           "sourceRange": {
             "start": {
-              "line": 165,
+              "line": 190,
               "column": 8
             },
             "end": {
-              "line": 170,
+              "line": 196,
+              "column": 9
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "logout",
+          "description": "Used to logout the user in the current app",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 199,
+              "column": 8
+            },
+            "end": {
+              "line": 201,
               "column": 9
             }
           },
@@ -3867,11 +3927,11 @@
       "metadata": {},
       "sourceRange": {
         "start": {
-          "line": 79,
+          "line": 77,
           "column": 4
         },
         "end": {
-          "line": 171,
+          "line": 202,
           "column": 5
         }
       },
@@ -3884,11 +3944,11 @@
           "description": "The language of the button.",
           "sourceRange": {
             "start": {
-              "line": 87,
+              "line": 85,
               "column": 16
             },
             "end": {
-              "line": 90,
+              "line": 88,
               "column": 17
             }
           },
@@ -3900,11 +3960,11 @@
           "description": "The app ID of your Facebook app. Create one at https://developers.facebook.com/apps/",
           "sourceRange": {
             "start": {
-              "line": 92,
+              "line": 90,
               "column": 16
             },
             "end": {
-              "line": 95,
+              "line": 93,
               "column": 17
             }
           },
@@ -3916,11 +3976,11 @@
           "description": "The `version` attribute specifies which FB API version should be used. Example 'v3.0'.",
           "sourceRange": {
             "start": {
-              "line": 97,
+              "line": 95,
               "column": 16
             },
             "end": {
-              "line": 100,
+              "line": 98,
               "column": 17
             }
           },
@@ -3932,11 +3992,11 @@
           "description": "The button text to display",
           "sourceRange": {
             "start": {
-              "line": 102,
+              "line": 100,
               "column": 16
             },
             "end": {
-              "line": 105,
+              "line": 103,
               "column": 17
             }
           },
@@ -3948,11 +4008,11 @@
           "description": "The loading state of login",
           "sourceRange": {
             "start": {
-              "line": 107,
+              "line": 105,
               "column": 16
             },
             "end": {
-              "line": 110,
+              "line": 108,
               "column": 17
             }
           },
@@ -3964,11 +4024,11 @@
           "description": "Whether you want to set a cookie in order to allow the server to access the session.",
           "sourceRange": {
             "start": {
-              "line": 112,
+              "line": 110,
               "column": 16
             },
             "end": {
-              "line": 115,
+              "line": 113,
               "column": 17
             }
           },
@@ -3976,23 +4036,62 @@
           "type": "boolean"
         },
         {
-          "name": "scope",
-          "description": "The scope that you want access to.\n(see https://developers.facebook.com/docs/facebook-login/permissions/v3.0). Should be space delimited",
+          "name": "user",
+          "description": "The user object as returned by Facebook graphApi",
           "sourceRange": {
             "start": {
-              "line": 118,
+              "line": 115,
               "column": 16
             },
             "end": {
-              "line": 121,
+              "line": 118,
               "column": 17
             }
           },
           "metadata": {},
           "type": "Object"
+        },
+        {
+          "name": "scope",
+          "description": "The scope that you want access to.\n(see https://developers.facebook.com/docs/facebook-login/permissions/v3.0). Should be space delimited",
+          "sourceRange": {
+            "start": {
+              "line": 121,
+              "column": 16
+            },
+            "end": {
+              "line": 124,
+              "column": 17
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "debug",
+          "description": "Set to true to log some debug info to the console",
+          "sourceRange": {
+            "start": {
+              "line": 126,
+              "column": 16
+            },
+            "end": {
+              "line": 129,
+              "column": 17
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
         }
       ],
-      "events": [],
+      "events": [
+        {
+          "type": "CustomEvent",
+          "name": "user-changed",
+          "description": "Fired when the `user` property changes.",
+          "metadata": {}
+        }
+      ],
       "styling": {
         "cssVariables": [],
         "selectors": []

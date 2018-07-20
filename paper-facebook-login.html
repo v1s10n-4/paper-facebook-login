@@ -132,7 +132,6 @@ Custom property | Description | Default
         }
 
         connectedCallback() {
-//            console.clear();
             super.connectedCallback();
             if (!this.appid) {
                 console.error("Missing attribute appid for paper-facebook-login");
@@ -162,8 +161,7 @@ Custom property | Description | Default
 
         /** Called when user connection status changed
          * @private
-         * @param response the user object
-         */
+         * @param {Event} response the user object */
         _statusChanged(response) {
             this.set('loading', false);
             let fields = this.scope.split(',').map(x => (!!~x.indexOf('user_') ? x.replace('user_', '') : x));

@@ -1,7 +1,6 @@
-# paper-facebook-login
+# &lt;paper-facebook-button&gt;
 [![Build status](https://travis-ci.org/vision-4/paper-facebook-button.svg?branch=master)](https://travis-ci.org/vision-4/paper-facebook-button)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/vision-4/facebook-login-button)
-
 
 Simple facebook login button
 
@@ -9,7 +8,7 @@ Simple facebook login button
 ```
 <custom-element-demo>
   <template>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^1.0.0/webcomponents-loader.js"></script>
         <link rel="import" href="../../polymer/polymer.html">
         <link rel="import" href="../paper-facebook-login.html">
     <style is="custom-style">

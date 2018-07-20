@@ -24,10 +24,6 @@
   "demos": {
     "Demo": "demo/index.html"
   },
-  "ignore": [
-    "!*.html",
-    "!LICENSE"
-  ],
   "dependencies": {
     "polymer": "^2.0.0",
     "paper-button": "2.0.0"
