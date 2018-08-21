@@ -8,7 +8,7 @@ Simple facebook login button
 ```
 <custom-element-demo>
   <template>
-    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^1.0.0/webcomponents-loader.js"></script>
+    <script src="c"></script>
         <link rel="import" href="../../polymer/polymer.html">
         <link rel="import" href="../paper-facebook-login.html">
     <style is="custom-style">

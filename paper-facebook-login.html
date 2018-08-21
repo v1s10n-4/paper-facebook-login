@@ -66,9 +66,9 @@ Custom property | Description | Default
             }
         </style>
         <paper-button id="fbLogin" raised on-click="login" disabled$="[[loading]]">
-                <svg viewBox="0 0 7.94 16.74">
-                    <path d="M5.39,16.79H2.29V8.52H0.22V5.67H2.29V4c0-2.32.63-3.74,3.37-3.74H7.94V3.1H6.51c-1.07,0-1.12.4-1.12,1.14V5.67H8L7.65,8.52H5.39v8.27Z" transform="translate(-0.12 -0.15)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"/>
-                </svg>
+            <svg viewBox="0 0 7.94 16.74">
+                <path d="M5.39,16.79H2.29V8.52H0.22V5.67H2.29V4c0-2.32.63-3.74,3.37-3.74H7.94V3.1H6.51c-1.07,0-1.12.4-1.12,1.14V5.67H8L7.65,8.52H5.39v8.27Z" transform="translate(-0.12 -0.15)" style="stroke:#000;stroke-miterlimit:10;stroke-width:0.20000000298023224px"/>
+            </svg>
             <span>[[text]]</span>
         </paper-button>
     </template>
@@ -88,7 +88,7 @@ Custom property | Description | Default
                     value: 'en_US'
                 },
                 /** The app ID of your Facebook app. Create one at https://developers.facebook.com/apps/ */
-                appid: {
+                appId: {
                     type: String,
                     value: ''
                 },
@@ -101,6 +101,11 @@ Custom property | Description | Default
                 text: {
                     type: String,
                     value: 'Sign-in with Facebook'
+                },
+                /** if true, don't wait for user input to query facebook */
+                autoConnect: {
+                    type: Boolean,
+                    value: false
                 },
                 /** The loading state of login */
                 loading: {
@@ -133,27 +138,28 @@ Custom property | Description | Default
 
         connectedCallback() {
             super.connectedCallback();
-            if (!this.appid) {
-                console.error("Missing attribute appid for paper-facebook-login");
+            if (!this.appId) {
+                console.error("Missing attribute appId for paper-facebook-login");
                 return;
             }
             window.fbAsyncInit = () => {
                 FB.init({
-                    appId: this.appid,
+                    appId: this.get('appId'),
                     status: true,
-                    cookie: this.cookie,
+                    cookie: this.get('cookie'),
                     autoLogAppEvents: true,
                     xfbml: true,
-                    version: this.version
+                    version: this.get('version')
                 });
-                FB.getLoginStatus(res => this._statusChanged(res), e => console.log(e));
+                if (this.get('autoConnect'))
+                    FB.getLoginStatus(res => this._statusChanged(res), e => console.log(e));
             };
             if (!window.FB) {
                 ((d, s, id) => {
                     var js, fjs = d.getElementsByTagName(s)[0];
                     if (d.getElementById(id)) {return;}
                     js = d.createElement(s); js.id = id;
-                    js.src = `https://connect.facebook.net/${this.language || 'en_US'}/sdk.js`;
+                    js.src = `https://connect.facebook.net/${this.get('language') || 'en_US'}/sdk.js`;
                     fjs.parentNode.insertBefore(js, fjs);
                 })(document, 'script', 'facebook-jssdk');
             }
@@ -164,7 +170,7 @@ Custom property | Description | Default
          * @param {Event} response the user object */
         _statusChanged(response) {
             this.set('loading', false);
-            let fields = this.scope.split(',').map(x => (!!~x.indexOf('user_') ? x.replace('user_', '') : x));
+            let fields = this.get('scope').split(',').map(x => ~x.indexOf('user_') ? x.replace('user_', '') : x);
             fields = ['id', 'picture', 'last_name', 'first_name', ...fields].join(',');
             if (response.status === 'connected') {
                 FB.api(`/me?fields=${fields}`, response => {
@@ -172,10 +178,10 @@ Custom property | Description | Default
                         if (this.debug) console.error('error', response.error.message);
                     } else {
                         if (this.debug) console.info('success', response);
-                        this.set('user', response);
+                        this.set('user', {...response, token: FB.getAccessToken()});
                         this.dispatchEvent(new CustomEvent('facebook-user-connected', {
                             detail: {
-                                user: response
+                                user: this.get('user')
                             }
                         }));
                     }
@@ -191,9 +197,7 @@ Custom property | Description | Default
         login() {
             if (this.debug) console.info(this.scope);
             this.set('loading', true);
-            FB.login(res => {
-                this._statusChanged(res);
-            }, {scope: this.scope});
+            FB.login(res => this._statusChanged(res), {scope: this.get('scope')});
         }
 
         /** Used to logout the user in the current app */

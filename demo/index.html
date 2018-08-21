@@ -46,7 +46,7 @@
             <template>
                 <dom-bind>
                     <template is="dom-bind">
-                        <paper-facebook-login appid="479069922240685" user="{{user}}"></paper-facebook-login>
+                        <paper-facebook-login app-id="479069922240685" user="{{user}}"></paper-facebook-login>
                         <div style="margin-top: 20px">
                             <img src$="[[user.picture.data.url]]">
                             <div>[[user.first_name]] [[user.last_name]]</div>
@@ -77,6 +77,11 @@
                             background-color: #3b5998;
                         }
                     }
+                    #fbLogin[pressed] {
+                        --paper-facebook-login: {
+                            background: red;
+                        };
+                    }
                 </style>
             </custom-style>
             <dom-bind>
@@ -84,7 +89,7 @@
                     <paper-facebook-login id="fbLogin"
                                           text="Connectez-vous avec Facebook"
                                           language="fr_FR"
-                                          appid="479069922240685"
+                                          app-id="479069922240685"
                                           user="{{user}}"
                                           scope="email,user_age_range,user_birthday,user_friends,user_gender,user_hometown,user_link,user_location,user_likes,user_photos,user_posts,user_tagged_places,user_videos,user_events">
                     </paper-facebook-login>
