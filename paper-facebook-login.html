@@ -46,21 +46,25 @@ Custom property | Description | Default
                 text-align: left;
                 text-transform: none;
                 min-height: 40px;
-                display: flex;
-
+                display: grid;
+                grid-template-columns: 5% 95%;
+                grid-template-areas: "svg span";
                 @apply(--paper-facebook-login);
             }
             svg {
                 padding: 1%;
                 margin-left: 5px;
-                width: 5%;
+                width: 100%;
                 fill: white;
+                grid-area: svg;
 
                 @apply(--paper-facebook-login-icon);
             }
             span {
                 text-align: center;
                 width: 100%;
+                position: relative;
+                grid-area: span;
 
                 @apply(--paper-facebook-login-text);
             }
