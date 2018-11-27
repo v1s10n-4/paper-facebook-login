@@ -174,15 +174,15 @@ Custom property | Description | Default
          * @param {Event} response the user object */
         _statusChanged(response) {
             this.set('loading', false);
-            let fields = this.get('scope').split(',').map(x => ~x.indexOf('user_') ? x.replace('user_', '') : x);
-            fields = ['id', 'picture', 'last_name', 'first_name', ...fields].join(',');
+            let fields = this.get('scope').split(',').map(x => x.replace('user_', ''))
+                .concat(['id', 'picture', 'last_name', 'first_name']).join(',');
             if (response.status === 'connected') {
                 FB.api(`/me?fields=${fields}`, response => {
                     if (response.error) {
                         if (this.debug) console.error('error', response.error.message);
                     } else {
                         if (this.debug) console.info('success', response);
-                        this.set('user', {...response, token: FB.getAccessToken()});
+                            this.set('user', Object.assign({ token: FB.getAccessToken() }, response));
                         this.dispatchEvent(new CustomEvent('facebook-user-connected', {
                             detail: {
                                 user: this.get('user')
